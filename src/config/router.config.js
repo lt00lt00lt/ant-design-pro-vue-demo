@@ -13,7 +13,7 @@ export const asyncRouterMap = [
     children: [
       //首页
       {
-        path: '/index/inded',
+        path: '/index',
         name: 'Index',
         component: () => import('@/views/index/Index'),
         meta: { title: '首页', keepAlive: true, permission: ['dashboard'] }

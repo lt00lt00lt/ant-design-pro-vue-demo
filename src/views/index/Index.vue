@@ -1,13 +1,15 @@
 <template>
   <page-view :title="title">
-    <div class="title">Hello World !</div>
-    <button @click="getData()">获取数据</button>
+    <a-card>
+      <div class="title">Hello World !</div>
+      <a-button type="primary" @click="getData()">获取数据</a-button>
+    </a-card>
   </page-view>
 </template>
 
 <script>
 import { PageView } from '@/layouts'
-import axios from 'axios'
+import { axios } from '@/utils/request'
 
 export default {
   name: 'Index',
@@ -21,8 +23,11 @@ export default {
   },
   methods: {
     getData() {
-      axios.post('/api/seniorFind/duty?pageNum=1&pageSize=3', {}).then(res=>{
-          console.log(res);
+      axios({
+        url: '/seniorFind/duty?pageNum=1&pageSize=3',
+        method: 'POST'
+      }).then(res => {
+        console.log(res)
       })
     }
   }
